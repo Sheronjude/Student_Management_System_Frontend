@@ -65,14 +65,15 @@ const StudentsView = () => {
 								<td>{student.email}</td>
 								<td>{student.department}</td>
 								<td className="mx-2">
-									
+									<button className="btn btn-info">
 										<FaEye />
+									</button>
 									
 								</td>
 								<td className="mx-2">
-								
+									<button className="btn btn-warning">
 										<FaEdit />
-									
+									</button>									
 								</td>
 								<td className="mx-2">
 									<button
