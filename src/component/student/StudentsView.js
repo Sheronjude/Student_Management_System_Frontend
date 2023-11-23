@@ -14,7 +14,9 @@ const StudentsView = () => {
 	const [students, setStudents] = useState([]);
 	
 
-	
+	useEffect(() => {
+		loadStudents();
+	}, []);
 
 	const loadStudents = async () => {
 		try {
@@ -33,11 +35,14 @@ const StudentsView = () => {
         }
 	};
 
-    useEffect(() => {
-		loadStudents();
-	}, []);
-	console.log(students)
+    
 	
+	const handleDelete = async (id) => {
+		await axios.delete(
+			`http://localhost:8080/students/delete/${id}`
+		);
+		loadStudents();
+	};
 
 	return (
 		<section>
@@ -65,19 +70,26 @@ const StudentsView = () => {
 								<td>{student.email}</td>
 								<td>{student.department}</td>
 								<td className="mx-2">
-									<button className="btn btn-info">
+								<Link
+										to={`/student-profile/${student.id}`}
+										className="btn btn-info">
 										<FaEye />
-									</button>
+									</Link>
 									
 								</td>
 								<td className="mx-2">
-									<button className="btn btn-warning">
+								<Link
+										to={`/edit-student/${student.id}`}
+										className="btn btn-warning">
 										<FaEdit />
-									</button>									
+									</Link>								
 								</td>
 								<td className="mx-2">
-									<button
-										className="btn btn-danger">
+								<button
+										className="btn btn-danger"
+										onClick={() =>
+											handleDelete(student.id)
+										}>
 										<FaTrashAlt />
 									</button>
 								</td>

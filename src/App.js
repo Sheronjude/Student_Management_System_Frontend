@@ -6,16 +6,18 @@ import Home from "./Home";
 import StudentsView from "./component/student/StudentsView";
 import { Route, Router, Routes } from "react-router-dom";
 import NavBar from "./component/common/NavBar";
+import AddStudent from "./component/student/AddStudent";
 
 function App() {
   return (
-    <div className="App">
+    <main className="container mt-5">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/student-details" element={<StudentsView />}></Route>
+        <Route path="/add-students" element={<AddStudent/>}></Route>
       </Routes>
-    </div>
+    </main>
   );
 }
 

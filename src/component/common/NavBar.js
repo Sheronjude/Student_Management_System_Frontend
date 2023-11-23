@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
     <>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">Student Management System</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@ const NavBar = () => {
           <Link className="nav-link active" aria-current="page" to={"student-details"}>View All Students</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to={"/"}>Add New Student</Link>
+          <Link className="nav-link" to={"/add-students"}>Add New Student</Link>
         </li>
         
         {/* <li className="nav-item dropdown">
